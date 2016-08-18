@@ -10,35 +10,39 @@
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<script src="js/jquery-3.1.0.min.js"></script>
+		<link rel="stylesheet" href="css/style.css">
 	</head>
 <body>
-<style>
-	body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
 
-  main {
-    flex: 1 0 auto;
-  }
-      
-</style>
 <nav>
     <div class="nav-wrapper light-blue darken-1">
       	<a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
       	<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       	<ul class="right hide-on-med-and-down">
-        	<li><a href="sass.html"><i class="material-icons">search</i></a></li>
         	<li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-        	<li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
-        	<li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+        	<li><a href="index.html" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Recargar página"><i class="material-icons">refresh</i></a></li>
+        	<!-- Dropdown Trigger -->
+        	<li><a class='dropdown-button' href='#' data-activates='dropdown2'><i class="material-icons">more_vert</i></a></li>
+			  <!-- Dropdown Structure -->
+			  <ul id='dropdown2' class='dropdown-content'>
+			    <li class="divider"></li>
+			    <li><a href="#!">Info</a></li>
+			    <li class="divider"></li>
+			    <li><a href="#!">Licencia</a></li>
+			  </ul>
       	</ul>
       	<ul class="side-nav" id="mobile-demo">
-	        <li><a href="sass.html"><i class="material-icons">search</i></a></li>
         	<li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-        	<li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
-        	<li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+        	<li><a href="index.html"><i class="material-icons">refresh</i></a></li>
+        	<!-- Dropdown Trigger -->
+        	<li><a class='dropdown-button' href='#' data-activates='dropdown1'><i class="material-icons">more_vert</i></a></li>
+			  <!-- Dropdown Structure -->
+			  <ul id='dropdown1' class='dropdown-content'>
+			    <li class="divider"></li>
+			    <li><a href="#!">Info</a></li>
+			    <li class="divider"></li>
+			    <li><a href="#!">Licencia</a></li>
+			  </ul>
       	</ul>
     </div>
   </nav>
@@ -50,9 +54,9 @@
     <!-- Page Content goes here -->
 <!-- FORMULARIO INICIAL -->
 <div class="formulario z-depth-4">
-<br><br>
+	<br><br>
   <div class="row">
-    <form class="col s10 offset-s1">
+    <form class="col s10 offset-s1" autocomplete="off">
       <div class="row">
         <div class="input-field col s12">
           <input id="name" type="text" class="validate">
@@ -65,25 +69,25 @@
           <label for="lastName" data-error="Complete el campo" data-success="correcto">Apellido</label>
         </div>
       </div>
-      <p>Escoja una categoría</p>
+      <p>Elija una categoría</p>
       <ul class="collapsible popout" data-collapsible="accordion">
 	    <li>
-	      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Mayúsculas</div>
-	      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p>
+	      <div class="collapsible-header"><i class="material-icons">label_outline</i>Mayúsculas</div>
+	      <div class="collapsible-body"><p>Acceder al juego para aprender las reglas sobre el uso de las mayúsculas.</p>
 		       <div class="row center-align">
-			      <button class="btn waves-effect waves-light sendForm" type="submit" name="action">Comenzar
+			      <a class="btn waves-effect waves-light botonMayusculas">Comenzar
 				    <i class="material-icons right">send</i>
-				  </button>
+				  </a>
 		      </div>
 	      </div>
 	    </li>
 	    <li>
-	      <div class="collapsible-header"><i class="material-icons">whatshot</i>Minúsculas</div>
-	      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p>
+	      <div class="collapsible-header"><i class="material-icons">label_outline</i>Minúsculas</div>
+	      <div class="collapsible-body"><p>Acceder al juego para aprender las reglas sobre el uso de las minúsculas.</p>
 		      <div class="row center-align">
-			      <button class="btn waves-effect waves-light sendForm" type="submit" name="action">Comenzar
+			      <a class="btn waves-effect waves-light botonMinuscular">Comenzar
 				    <i class="material-icons right">send</i>
-				  </button>
+				  </a>
 		      </div>
 	      </div>
 	    </li>
@@ -95,6 +99,7 @@
 </div>
 <!-- DIV PARA EL JUEGO -->
 <div class="juego hide">
+	<h5 class="mainTitle">Main title</h5>
 	<div class="chip chipNombre">
  	</div>
  	<div class="right">
@@ -162,39 +167,7 @@
         </div>
     </div>
 </footer>
-<script >
-$(document).ready(function() {
-	var name = "";
-	var lastName = "";
-	var score = 0;
-	$(window).load(function() {
-		$('.progress').hide(1000);
-	});
-	$(".button-collapse").sideNav();
-
-	// VALIDA EL FORMULARIO
-	$('.sendForm').click(function(event) {
-		if ($('#name').hasClass('valid') == false){
-			Materialize.toast('Debe ingresar su nombre', 4000, 'rounded');
-		}
-		if ($('#lastName').hasClass('valid') == false){
-			Materialize.toast('Debe ingresar su apellido', 4000, 'rounded')
-		}
-		if($('#lastName').hasClass('valid') && $('#name').hasClass('valid')){
-			name = $('#name').val();
-			lastName = $('#lastName').val();
-			$(".formulario").fadeOut(400);
-			setTimeout(function(){
-				$(".juego").hide();
-				$(".juego").removeClass('hide');
-				$(".juego").fadeIn(800);
-				$(".chipNombre").html('<img src="img/abstract-user-flat-4.png" alt="Contact Person">'+name+' '+lastName+'');
-				$(".chipScore").html('Puntuación: '+score);
-			},400);
-		}
-	});
-});
-</script>
+<script src="js/script.js"></script>
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
