@@ -3,7 +3,6 @@ $(document).ready(function() {
 	escucharBotonFormulario();
 	name = "";
 	lastName = "";
-	score = 0;
 	uppercase = false;
 	lowercase = false;
 	
@@ -32,9 +31,9 @@ function init(){
 $.getJSON( "json/mayusculas.json", function(res) {
 	mayusculas = res;
 });
-// $.getJSON( "json/minuscular.json", function(res) {
-// 	minuscular = res;
-// });
+$.getJSON( "json/minusculas.json", function(res) {
+	minusculas = res;
+});
 function escucharBotonFormulario(){
 	// VALIDA EL FORMULARIO
 	$('.botonMayusculas').click(function(event) {
@@ -42,13 +41,15 @@ function escucharBotonFormulario(){
 			uppercase = true;
 			lowercase = false;
 			mostrarContenedorJuego();
+			data = mayusculas;
 		}
 	});
-	$('.botonMinuscular').click(function(event) {
+	$('.botonMinusculas').click(function(event) {
 		if(validarFormulario()){
 			lowercase = true;
 			uppercase = false;
 			mostrarContenedorJuego();
+			data = minusculas;
 		}
 	});
 }
@@ -75,7 +76,6 @@ function mostrarContenedorJuego(){
 		$(".juego").removeClass('hide');
 		$(".juego").fadeIn(800);
 		$(".chipNombre").html('<img src="img/abstract-user-flat-4.png" alt="Contact Person">'+name+' '+lastName+'');
-		$(".chipScore").html('Puntuación: '+score);
 		if(uppercase){
 			$(".mainTitle").text('Uso de la mayúscula');
 		} else {

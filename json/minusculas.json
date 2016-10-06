@@ -1,0 +1,38 @@
+[
+	{
+		"titulo"   : "Titulo--",
+		"pregunta" : "Contenido de la preguna",
+		"texto1"   : "Contenido del texto 1",
+		"img1"	   : "img/falso.svg",
+		"texto2"   : "Contenido del texto 2",
+		"img2"	   : "img/verdad.svg",
+		"respuesta": 1
+	},
+	{
+		"titulo"   : "Titulo--",
+		"pregunta" : "Contenido de la preguna",
+		"texto1"   : "Contenido del texto 1",
+		"img1"	   : "img/falso.svg",
+		"texto2"   : "Contenido del texto 2",
+		"img2"	   : "img/verdad.svg",
+		"respuesta": 2
+	},
+	{
+		"titulo"   : "Titulo--",
+		"pregunta" : "Contenido de la preguna",
+		"texto1"   : "Contenido del texto 1",
+		"img1"	   : "img/falso.svg",
+		"texto2"   : "Contenido del texto 2",
+		"img2"	   : "img/verdad.svg",
+		"respuesta": 1
+	},
+	{
+		"titulo"   : "Titulo--",
+		"pregunta" : "Contenido de la preguna",
+		"texto1"   : "Contenido del texto 1",
+		"img1"	   : "img/falso.svg",
+		"texto2"   : "Contenido del texto 2",
+		"img2"	   : "img/verdad.svg",
+		"respuesta": 2
+	}
+]

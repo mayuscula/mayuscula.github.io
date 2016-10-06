@@ -1,29 +1,74 @@
-{
-	"1":{
+[
+	{
 		"titulo"   : "Titulo--",
-		"pregunta" : "Contenido de la preguna",
-		"texto1"   : "Contenido del texto 1",
-		"img1"	   : "http://lorempixel.com/400/200/sports/",
-		"texto2"   : "Contenido del texto 2",
-		"img2"	   : "http://lorempixel.com/400/200/sports/",
+		"pregunta" : "El empleo de la mayúscula exime de poner la tilde cuando así lo exijan las reglas de acentuación.",
+		"texto1"   : "¡Correcto! Se debe usar la tilde en letras mayúsculas.",
+		"img1"	   : "img/falso.svg",
+		"texto2"   : "Incorrecto. Se debe usar la tilde en letras mayúsculas.",
+		"img2"	   : "img/verdad.svg",
 		"respuesta": 1
 	},
-	"2":{
+	{
 		"titulo"   : "Titulo--",
-		"pregunta" : "Contenido de la preguna",
-		"texto1"   : "Contenido del texto 1",
-		"img1"	   : "http://lorempixel.com/400/200/sports/",
-		"texto2"   : "Contenido del texto 2",
-		"img2"	   : "http://lorempixel.com/400/200/sports/",
+		"pregunta" : "Se escriben en minúscula, los acrónimos que el uso los ha convertido en sustantivos comunes: láser, radar, uvi.",
+		"texto1"   : "Incorrecto. Estos acrónimos se deben escribir en minúscula porque son de uso común.",
+		"img1"	   : "img/falso.svg",
+		"texto2"   : "¡Correcto! Debido a que son utilizados de manera frecuentes estos acrónimos no se escriben en mayúscula",
+		"img2"	   : "img/verdad.svg",
+		"respuesta": 2
+	},
+	{
+		"titulo"   : "Titulo--",
+		"pregunta" : "La forma mayúscula de las letras i y j carece del punto que llevan en su grafía minúscula.",
+		"texto1"   : "Incorrecto. Las letras i y j en mayúscula no utilizan el punto.",
+		"img1"	   : "img/falso.svg",
+		"texto2"   : "¡Correcto! Estas letras en mayuscula no utilizan el punto.",
+		"img2"	   : "img/verdad.svg",
+		"respuesta": 2
+	},
+	{
+		"titulo"   : "Titulo--",
+		"pregunta" : " Cuando los acrónimos son nombres propios y tienen más de cuatro letras, no se escribe en mayúscula la letra inicial.",
+		"texto1"   : "¡Correcto! Estos acrónimos tienen su primera letra en mayúscula, ejemplo; Unicef, Unesco",
+		"img1"	   : "img/falso.svg",
+		"texto2"   : "Incorrecto. Si se debe escribir la primera letra en mayúscula.",
+		"img2"	   : "img/verdad.svg",
 		"respuesta": 1
 	},
-	"3":{
+	{
 		"titulo"   : "Titulo--",
-		"pregunta" : "Contenido de la preguna",
-		"texto1"   : "Contenido del texto 1",
-		"img1"	   : "http://lorempixel.com/400/200/sports/",
-		"texto2"   : "Contenido del texto 2",
-		"img2"	   : "http://lorempixel.com/400/200/sports/",
+		"pregunta" : "Se permite el uso de mayúsculas en todas las letras de las cubiertas o portadas de libros.",
+		"texto1"   : "Incorrecto. Si se permite utilizar todas las letras en mayúscula en las portadas o cubiertas de libros",
+		"img1"	   : "img/falso.svg",
+		"texto2"   : "¡Correcto! Se puede utilizar todas las letras en mayúscula cuando se posicionan en portadas o cubiertas de libros, ejemplo; EL UNIVERSAL, LA NACIÓN, TIEMPO.",
+		"img2"	   : "img/verdad.svg",
+		"respuesta": 2
+	},
+	{
+		"titulo"   : "Titulo--",
+		"pregunta" : "Se permite utilizar todas las letras en mayúscula en textos jurídicos y administrativos —decretos, sentencias, bandos, edictos, certificados o instancias—, en donde el verbo presenta el objetivo fundamental del documento.",
+		"texto1"   : "Incorrecto. Si se puede utilizar todas las letras en mayúscula en estos verbos.",
+		"img1"	   : "img/falso.svg",
+		"texto2"   : "¡Correcto! Debido a su caracter de importancias si se permite utilizar todas las letras en mayúscula, ejemplo; CERTIFICA, EXPONE, SOLICITA.",
+		"img2"	   : "img/verdad.svg",
+		"respuesta": 2
+	},
+	{
+		"titulo"   : "Titulo--",
+		"pregunta" : "Se prohibe utilizar todas las letras en mayúscula en textos de carácter informativo.",
+		"texto1"   : "¡Correcto! Si se pueden utilizar todas las letras en mayusculas en textos de caráter, ejemplo; ESTÁ PROHIBIDO FUMAR DENTRO DE LAS DEPENDENCIAS DE LA EMPRESA.",
+		"img1"	   : "img/falso.svg",
+		"texto2"   : "Incorrecto. Si se pueden utilizar todas las letras en mayúscula en textos de caráter informativo.",
+		"img2"	   : "img/verdad.svg",
 		"respuesta": 1
+	},
+	{
+		"titulo"   : "Titulo--",
+		"pregunta" : "Se debe utilizar la primera letra en mayúscula cada vez que se inicia un texto.",
+		"texto1"   : "Incorrecto. Si se debe utilizar la primera letra en mayúscula cada vez que se inicia un texto.",
+		"img1"	   : "img/falso.svg",
+		"texto2"   : "¡Correcto! Sempre se inicia con mayúscula cuando se comienza un texto..",
+		"img2"	   : "img/verdad.svg",
+		"respuesta": 2
 	}
-}
+]
