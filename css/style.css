@@ -1,10 +1,15 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
- }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-image: url('../img/atomic_background.png');
+  background-color: #121342;
+}
+.black-body{
+  background-color: #000;
+}
 main {
-   flex: 1 0 auto;
+ flex: 1 0 auto;
 }
 
 /* fallback */
@@ -29,4 +34,23 @@ main {
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
+}
+.formulario{
+  background-color: white;
+}
+.text-container{
+  background: white;
+  height: 200px;
+  color: black;
+  padding: 15px;
+  font-size: 1.5em;
+  border: solid rgba(0, 0, 0, 0) 5px;
+  border-radius: 4px;
+}
+.border-container{
+  border: solid rgba(0, 0, 0, 0) 5px;
+  border-radius: 4px;
+}
+.mainTitle{
+  color: white;
 }

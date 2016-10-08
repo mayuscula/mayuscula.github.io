@@ -13,28 +13,24 @@
 	
 	<script src="js/angular.min.js"></script>
 	<script src="js/controllers/controlador-puntos.js"></script>
+	<script src="js/controllers/fb-sdk.js"></script>
 	<link rel="stylesheet" href="css/style.css">
-	<style type="text/css">
-		.text-container{
-			background: slateblue;
-			height: 200px;
-			color: white;
-			padding: 15px;
-			font-size: 1.5em;
-		}
-	</style>
 </head>
 <body ng-controller="CtrlSignos">
 
 	<nav>
-		<div class="nav-wrapper purple accent-4">
+		<div class="nav-wrapper green darken-3">
 			<a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-				<li><a href="index.html">Preguntas</a></li>
-				<li><a href="#">Signos</a></li>
-				<li><a href="signos.html" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Recargar página"><i class="material-icons">refresh</i></a></li>
+				<li class="fb-user">
+					<!-- Facebook image load here -->
+				</li>
+				<li><a href="index.html"><i class="material-icons">view_module</i></a></li>
+				<li><a href="preguntas.html">Preguntas</a></li>
+				<li><a href="corrector.html">Corrección de texto</a></li>
+				<li class="active"><a href="#">Definiciones</a></li>
+				<li><a href="definiciones.html" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Recargar página"><i class="material-icons">refresh</i></a></li>
 				<!-- Dropdown Trigger -->
 				<li><a class='dropdown-button' href='#' data-activates='dropdown2'><i class="material-icons">more_vert</i></a></li>
 				<!-- Dropdown Structure -->
@@ -46,10 +42,14 @@
 				</ul>
 			</ul>
 			<ul class="side-nav" id="mobile-demo">
-				<li><a href="index.html">Preguntas</a></li>
-				<li><a href="#">Signos</a></li>
-				<li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-				<li><a href="signos.html"><i class="material-icons">refresh</i></a></li>
+				<li class="fb-user">
+					<!-- Facebook image load here -->
+				</li>
+				<li><a href="preguntas.html">Preguntas</a></li>
+				<li><a href="corrector.html">Corrección de texto</a></li>
+				<li class="active"><a href="#">Definiciones</a></li>
+				<li><a href="index.html"><i class="material-icons">view_module</i></a></li>
+				<li><a href="definiciones.html"><i class="material-icons">refresh</i></a></li>
 				<!-- Dropdown Trigger -->
 				<li><a class='dropdown-button' href='#' data-activates='dropdown1'><i class="material-icons">more_vert</i></a></li>
 				<!-- Dropdown Structure -->
@@ -68,11 +68,14 @@
 	<main class="container">
 		<br>
 		<!-- Page Content goes here -->
+		<div class="fb-login-btn hide">
+			<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> <br><br>
+		</div>
 		<div class="row">
 			<form class="col s12">
 				<div class="row">
 					<div class="input-field col s12">
-						<textarea ng-model="text1" ng-change="scanner()" class="materialize-textarea"></textarea>
+						<textarea ng-model="text1" ng-change="scanner()" class="materialize-textarea" style="color: white;"></textarea>
 						<label for="textarea1">Ingrese el texto</label>
 					</div>
 				</div>
@@ -89,7 +92,7 @@
 		</div>
 
 	</main>   
-	<footer class="page-footer purple accent-4">
+	<footer class="page-footer green darken-3">
 		<div class="footer-copyright">
 			<div class="container">
 				© 2014 Copyright Text
@@ -102,5 +105,6 @@
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<script src="js/script.js"></script>
+	<script src="js/controllers/fb-login-builder.js"></script>
 </body>
 </html>

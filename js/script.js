@@ -34,6 +34,13 @@ $.getJSON( "json/mayusculas.json", function(res) {
 $.getJSON( "json/minusculas.json", function(res) {
 	minusculas = res;
 });
+
+function initGame(){
+	data = mayusculas;
+	angular.element('#initFB').triggerHandler('click');
+	mostrarContenedorJuego();
+}
+
 function escucharBotonFormulario(){
 	// VALIDA EL FORMULARIO
 	$('.botonMayusculas').click(function(event) {
@@ -68,18 +75,14 @@ function validarFormulario(){
 	}
 	return false;
 }
-
+ 
 function mostrarContenedorJuego(){
 	$(".formulario").fadeOut(400);
 	setTimeout(function(){
 		$(".juego").hide();
 		$(".juego").removeClass('hide');
 		$(".juego").fadeIn(800);
-		$(".chipNombre").html('<img src="img/abstract-user-flat-4.png" alt="Contact Person">'+name+' '+lastName+'');
-		if(uppercase){
-			$(".mainTitle").text('Uso de la mayúscula');
-		} else {
-			$(".mainTitle").text('Uso de la minúscula');
-		}
+		$(".fb-user").html('<div class="chip"><img src="" class="profilePic" alt="Contact Person">'+name+' '+lastName+'</div>');
+  			$(".profilePic").attr('src', "img/abstract-user-flat-4.png");
 	},400);
 }

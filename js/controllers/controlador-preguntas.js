@@ -1,4 +1,5 @@
-angular.module('App', []).controller('CtrlPreguntas', function($scope){
+var app = angular.module('App', []);
+app.controller('CtrlPreguntas', function($scope, facebookService){
 
 	$scope.data 		= data;
 	$scope.selected 	= {};
@@ -10,7 +11,43 @@ angular.module('App', []).controller('CtrlPreguntas', function($scope){
 	$scope.init = function() {
 		$scope.data 	= data;
 		$scope.cargar_datos();
+		$scope.getFbData();
 	}
+	$scope.getFbData = function() {
+		// facebookService.getMyLastName() 
+		// .then(function(response) {
+		// 	console.log(response)
+		// 	$(".chipNombre").html('<img src="img/abstract-user-flat-4.png" alt="Contact Person">'+name+' '+lastName+'');
+		// }
+		// );
+		// 
+		// 
+		
+		FB.getLoginStatus(function(response) {
+			if (response.status === 'connected') {
+		      // Logged into your app and Facebook.
+		      FB.api(
+		      	'/me',
+		      	'GET',
+		      	{"fields":"picture,name"},
+		      	function(response) {
+		      		var profilePic = response.picture.data.url;
+		      		$(".chipNombre").html('<img src="" id="profilePic" alt="Contact Person">' + response.name + '');
+		      		$("#profilePic").attr('src', ""+profilePic+"");
+		      	}
+		      	);
+		  } else if (response.status === 'not_authorized') {
+		      // The person is logged into Facebook, but not your app.
+		  } else {
+		      // The person is not logged into Facebook, so we're not sure if
+		      // they are logged into this app or not.
+		  }
+		});
+
+		
+	};
+
+
 
 	$scope.cargar_datos = function() {
 		$scope.final_juego();
