@@ -7,7 +7,11 @@ $(document).ready(function() {
 	lowercase = false;
 	
 	data = {};
-
+	
+	$("#btn-comenzar-preguntas").click(function(event) {
+		$(".fb-user").html('<div class="chip"><img src="" class="profilePic" alt="Contact Person">'+name+' '+lastName+'</div>');
+		$(".profilePic").attr('src', "img/abstract-user-flat-4.png");
+	});
 });
 
 function init(){
@@ -37,8 +41,8 @@ $.getJSON( "json/minusculas.json", function(res) {
 
 function initGame(){
 	data = mayusculas;
-	angular.element('#initFB').triggerHandler('click');
 	mostrarContenedorJuego();
+	angular.element('#initFB').triggerHandler('click');
 }
 
 function escucharBotonFormulario(){
@@ -75,14 +79,18 @@ function validarFormulario(){
 	}
 	return false;
 }
- 
+
 function mostrarContenedorJuego(){
+	if($(".profilePic") != ""){
+	} else {
+		
+	}
 	$(".formulario").fadeOut(400);
 	setTimeout(function(){
 		$(".juego").hide();
 		$(".juego").removeClass('hide');
 		$(".juego").fadeIn(800);
-		$(".fb-user").html('<div class="chip"><img src="" class="profilePic" alt="Contact Person">'+name+' '+lastName+'</div>');
-  			$(".profilePic").attr('src', "img/abstract-user-flat-4.png");
+
 	},400);
 }
+

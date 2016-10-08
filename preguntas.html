@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="App">
 <head>
+	<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 	<meta charset="utf-8">
 	<!--Import Google Icon Font-->
 	<!-- <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
@@ -33,7 +34,7 @@
 
 		<nav>
 			<div class="nav-wrapper blue darken-3">
-				<a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
+				<a href="#!" class="brand-logo"><img src="img/favicon.png"></a>
 				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 				<ul class="right hide-on-med-and-down">
 					<li class="fb-user">
@@ -110,7 +111,7 @@
 						</div>
 
 						<div class="row center-align">
-							<button class="btn waves-effect waves-light botonMayusculas" ng-click="init()" ng-disabled="formulario.$invalid">Comenzar
+							<button id="btn-comenzar-preguntas" class="btn waves-effect waves-light botonMayusculas" ng-click="init()" ng-disabled="formulario.$invalid">Comenzar
 								<i class="material-icons right">send</i>
 							</button>
 
@@ -225,25 +226,21 @@
 		</div>
 
 	</div>
+	<div class="row">
+		<div class="fb-like" data-href="https://mayuscula.github.io/" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+	</div>
 	<footer class="page-footer blue darken-3">
-
 		<div class="footer-copyright">
 			<div class="container">
 				<!-- © 2014 Copyright Text -->
 				<!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
-				<div
-				class="fb-like"
-				data-share="true"
-				data-width="200"
-				data-show-faces="true">
 			</div>
 		</div>
-	</div>
-	<br>
-</footer>
-<!--Import jQuery before materialize.js-->
-<script src="js/materialize.min.js"></script>
-<script src="js/controllers/fb-login-builder.js"></script>
+		<br>
+	</footer>
+	<!--Import jQuery before materialize.js-->
+	<script src="js/materialize.min.js"></script>
+	<script src="js/controllers/fb-login-builder.js"></script>
 </body>
 
 <!-- Modal Structure -->
@@ -251,17 +248,12 @@
 	<div class="modal-content">
 		<h4>Su puntuación es de: {{ puntuacion }}</h4>
 		<p>Puede iniciar un nuevo juego o compartir la aplicación en Facebook</p>
-		<div
-		class="fb-like"
-		data-share="true"
-		data-width="450"
-		data-show-faces="true">
+		<div class="fb-like" data-href="https://mayuscula.github.io/" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+		<br>
 	</div>
-	<br>
-</div>
-<div class="modal-footer">
-	<a href="index.html" class="right modal-action modal-close waves-effect waves-green btn btn-green lighten-2">Nuevo juego</a>
-</div>
+	<div class="modal-footer">
+		<a href="preguntas.html" class="right modal-action modal-close waves-effect waves-green btn btn-green lighten-2">Nuevo juego</a>
+	</div>
 </div>
 
 <a class="hide" ng-click="init()" id="initFB" btn-active="true"></a>

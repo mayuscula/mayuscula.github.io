@@ -39,8 +39,11 @@
       {"fields":"picture,name"},
       function(response) {
        var profilePic = response.picture.data.url;
+       $(".fb-user").hide();
        $(".fb-user").html('<div class="chip"><img src="" class="profilePic" alt="Contact Person">' + response.name + '</div>');
        $(".profilePic").attr('src', ""+profilePic+"");
+       $(".fb-user").fadeIn(400);
+
        $('.fb-login-btn').hide(400);
      }
      );
