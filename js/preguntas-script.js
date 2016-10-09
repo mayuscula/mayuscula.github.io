@@ -5,12 +5,7 @@ jQuery(document).ready(function($) {
 	$.getJSON( "json/mayusculas.json", function(res) {
 		mayusculas = res;
 	});
-	$.getJSON( "json/minusculas.json", function(res) {
-		minusculas = res;
-	});
-
-
-
+	
 });
 function initGame(type){
 	data = mayusculas;
