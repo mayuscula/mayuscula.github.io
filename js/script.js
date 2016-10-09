@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	init();
-	escucharBotonFormulario();
 	name = "";
 	lastName = "";
 	uppercase = false;
@@ -8,9 +7,11 @@ $(document).ready(function() {
 	
 	data = {};
 	
-	$("#btn-comenzar-preguntas").click(function(event) {
-		$(".fb-user").html('<div class="chip"><img src="" class="profilePic" alt="Contact Person">'+name+' '+lastName+'</div>');
-		$(".profilePic").attr('src', "img/abstract-user-flat-4.png");
+	$.getJSON( "json/mayusculas.json", function(res) {
+		mayusculas = res;
+	});
+	$.getJSON( "json/minusculas.json", function(res) {
+		minusculas = res;
 	});
 });
 
@@ -30,67 +31,22 @@ function init(){
       alignment: 'left' // Displays dropdown with edge aligned to the left of button
   }
   );
-}
 
-$.getJSON( "json/mayusculas.json", function(res) {
-	mayusculas = res;
-});
-$.getJSON( "json/minusculas.json", function(res) {
-	minusculas = res;
-});
-
-function initGame(){
-	data = mayusculas;
-	mostrarContenedorJuego();
-	angular.element('#initFB').triggerHandler('click');
-}
-
-function escucharBotonFormulario(){
-	// VALIDA EL FORMULARIO
-	$('.botonMayusculas').click(function(event) {
-		if(validarFormulario()){
-			uppercase = true;
-			lowercase = false;
-			mostrarContenedorJuego();
-			data = mayusculas;
-		}
-	});
-	$('.botonMinusculas').click(function(event) {
-		if(validarFormulario()){
-			lowercase = true;
-			uppercase = false;
-			mostrarContenedorJuego();
-			data = minusculas;
-		}
+	$('.btn-nav').click(function(event) {
+		/* Act on the event */
+		$('.btn-nav').removeClass("active");
+		$(this).addClass('active');
 	});
 }
 
-function validarFormulario(){
-	if ($('#name').hasClass('valid') == false){
-		Materialize.toast('Debe ingresar su nombre', 4000, 'rounded');
-	}
-	if ($('#lastName').hasClass('valid') == false){
-		Materialize.toast('Debe ingresar su apellido', 4000, 'rounded')
-	}
-	if($('#lastName').hasClass('valid') && $('#name').hasClass('valid')){
-		name = $('#name').val();
-		lastName = $('#lastName').val();
-		return true;
-	}
-	return false;
+function fbLogout() {
+	FB.logout(function(response) 
+	{
+		checkLoginState();
+  		Materialize.toast('Ha salido de Facebook', 4000, 'rounded');
+	});
 }
 
-function mostrarContenedorJuego(){
-	if($(".profilePic") != ""){
-	} else {
-		
-	}
-	$(".formulario").fadeOut(400);
-	setTimeout(function(){
-		$(".juego").hide();
-		$(".juego").removeClass('hide');
-		$(".juego").fadeIn(800);
 
-	},400);
-}
+
 

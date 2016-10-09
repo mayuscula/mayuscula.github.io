@@ -1,0 +1,131 @@
+<!-- FORMULARIO INICIAL -->
+<div id="preguntas-controller" ng-controller="preguntas-controller">
+	<div class="formulario z-depth-4">
+		<br><br>
+		<div class="row">
+			<form class="col s10 offset-s1" autocomplete="off" name="formulario" novalidate>
+				<p>Juego para aprender las reglas de uso de la mayúscula y minúscula</p>
+				<br>
+				<div id="formulario-iniciar-juego">
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="name" type="text" class="validate" ng-model="name" required>
+							<label for="name" data-error="Complete el campo" data-success="correcto">Nombre</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="lastName" type="text" class="validate" ng-model="lastName" required>
+							<label for="lastName" data-error="Complete el campo" data-success="correcto">Apellido</label>
+						</div>
+					</div>
+					<div class="row center-align">
+						<button ng-click="btnComenzarJuego(1)" class="btn waves-effect waves-light" ng-disabled="formulario.$invalid">Comenzar
+							<i class="material-icons right">send</i>
+						</button>
+
+					</div>
+				</div>
+				<button ng-click="btnComenzarJuego()" id="btn-iniciar-juego-fb" class="btn waves-effect waves-light hide">Comenzar
+					<i class="material-icons right">send</i>
+				</button>
+
+			</form>
+		</div>
+		<br>
+	</div>
+
+
+	<!-- DIV PARA EL JUEGO -->
+	<div class="juego hide">
+		<h5 class="mainTitle">Reglas de uso de la mayúscula y minúscula</h5>
+		<div class="">
+			<div class="fb-user-preguntas">
+				<!-- chip usuario -->
+			</div>
+			<div class="chip chipScore ">Puntuación: {{ puntuacion }}
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col s12">
+				<div class="card blue-grey darken-1 border-container">
+					<div class="card-content white-text">
+						<span class="card-title"></span>
+						<p style="font-size: 1.3em;">{{ selected.pregunta }}</p>
+					</div>
+					<div class="card-action">
+						<!-- <a href="#">This is a link</a> -->
+						<a href="" id="btn_siguiente" ng-click="siguiente()">Siguiente</a>
+					</div>
+				</div>
+				<p class="z-depth-4"></p>
+			</div>
+		</div>
+		<div class="row">
+			<!-- contenedor texto 1 -->
+			<div class="col s6 m4 offset-m2">
+				<div class="card z-depth-4" id="contenedor_texto_1">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="{{ selected.img1 }}" ng-click="comparar_respuesta(1)" id="img1">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4" ng-click="comparar_respuesta(1)"><i class="material-icons right">pageview</i></span><br>
+						<!-- <p><a href="#">This is a link</a></p> -->
+					</div>
+					<div class="card-reveal">
+						<!-- <span class="card-title grey-text text-darken-4">t<i class="material-icons right">close</i></span> -->
+						<p style="font-size: 1.2em;">{{ selected.texto1 }}</p>
+					</div>
+				</div>
+			</div>
+			<!--  -->
+
+			<!-- contenedor texto 2 -->
+			<div class="col s6 m4">
+				<div class="card z-depth-4" id="contenedor_texto_2">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="{{ selected.img2 }}" ng-click="comparar_respuesta(2)" id="img2">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4" ng-click="comparar_respuesta(2)"><i class="material-icons right">pageview</i></span><br>
+						<!-- <p><a href="#">This is a link</a></p> -->
+					</div>
+					<div class="card-reveal">
+						<!-- <span class="card-title grey-text text-darken-4">t<i class="material-icons right">close</i></span> -->
+						<p style="font-size: 1.2em;">{{ selected.texto2 }}</p>
+					</div>
+				</div>
+			</div>
+			<!--  -->
+
+		</div>
+	</div>
+
+	<!-- Modal Structure -->
+	<div id="modal_final" class="modal">
+		<div class="modal-content">
+			<h5>Su puntuación es de: <strong>{{ puntuacion }}</strong></h5>
+			<p>Puede iniciar un nuevo juego o compartir la aplicación en Facebook</p>
+			<div class="fb-like" data-href="https://mayuscula.github.io/" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+			<br>
+		</div>
+		<div class="modal-footer">
+			<a onclick="location.reload()" class="right modal-action modal-close waves-effect waves-green btn btn-green lighten-2">Nuevo juego</a>
+		</div>
+	</div>
+
+	<a class="hide" ng-click="init()" id="initFB" btn-active="true"></a>
+	<script >
+		jQuery(document).ready(function($) {
+			$("body").removeClass("black-body");
+			$.getJSON( "json/mayusculas.json", function(res) {
+				mayusculas = res;
+			});
+			// checkLoginState();
+		});
+		$(window).load(function() {
+			checkLoginState();
+		});
+	</script>
+</div>

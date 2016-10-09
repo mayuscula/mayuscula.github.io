@@ -4,63 +4,85 @@
 	<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 	<meta charset="utf-8">
 	<!--Import materialize.css-->
-	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<!--Let browser know website is optimized for mobile-->
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	
+	<!-- jquery -->
 	<script src="js/jquery.min.js"></script>
 	
+
+	<!-- angular  -->
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-routes.js"></script>
+	<script src="js/router.js"></script>
+	<!-- controllers -->
+	<script src="js/controllers/main-controller.js"></script>
+	<script src="js/controllers/preguntas-controller.js"></script>
+	<script src="js/controllers/corrector-controller.js"></script>
+	<script src="js/controllers/definiciones-controller.js"></script>
+	<!--  -->
+	
+	<!-- facebook -->
+	<script src="js/controllers/factory.js"></script>
 	<script src="js/controllers/fb-sdk.js"></script>
+
 	<link rel="stylesheet" href="css/style.css">
 
 	<meta property="og:url"           content="https://mayuscula.github.io" />
 	<meta property="og:type"          content="website" />
 	<meta property="og:title"         content="Uso de las mayúsculas u minúsculas " />
 	<meta property="og:description"   content="Your description" />
-	<meta property="og:image"         content="https://mayuscula.github.io/img/fb-Icon.png" />
+	<meta property="og:image"         content="img/fb-Icon.png" />
+	<meta property="og:image:with"    content="1024" />
+	<meta property="og:image:heigth"  content="1024" />
 </head>
-<body ng-controller="CtrlSignos" class="black-body">
+<body class="black-body">
 
 	<nav>
 		<div class="nav-wrapper cyan  darken-3">
-			<a href="#!" class="brand-logo"><img src="img/favicon.png"></a>
-			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+			<a href="#/" class="brand-logo btn-nav"><img src="img/favicon.png"></a>
+			<a href="" data-activates="mobile-demo" class="button-collapse btn-nav"><i class="material-icons">menu</i></a>
 			<ul class="right hide-on-med-and-down">
 				<li class="fb-user">
 					<!-- Facebook image load here -->
 				</li>
-				<li><a href="#"><i class="material-icons">view_module</i></a></li>
-				<li><a href="preguntas.html">Preguntas</a></li>
-				<li><a href="corrector.html">Corrección de texto</a></li>
-				<li><a href="definiciones.html">Definiciones</a></li>
-				<li><a href="index.html" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Recargar página"><i class="material-icons">refresh</i></a></li>
+				<li class="btn-nav"><a href="#/"><i class="material-icons">view_module</i></a></li>
+				<li class="btn-nav"><a onclick="chekfFB()" href="#preguntas">Preguntas</a></li>
+				<li class="btn-nav"><a href="#corrector">Corrección de texto</a></li>
+				<li class="btn-nav"><a href="#definiciones">Definiciones</a></li>
+				<li class="btn-nav"><a href="" onclick="location.reload()" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Recargar página"><i class="material-icons">refresh</i></a></li>
 				<!-- Dropdown Trigger -->
-				<li><a class='dropdown-button' href='#' data-activates='dropdown2'><i class="material-icons">more_vert</i></a></li>
+				<li class="btn-nav"><a class='dropdown-button' href='/' data-activates='dropdown2'><i class="material-icons">more_vert</i></a></li>
 				<!-- Dropdown Structure -->
 				<ul id='dropdown2' class='dropdown-content'>
 					<li class="divider"></li>
-					<li><a href="#!">Info</a></li>
+					<li class="btn-nav"><a onclick="fbLogout()">Cerrar sesión</a></li>
 					<li class="divider"></li>
-					<li><a href="#!">Licencia</a></li>
+					<li class="btn-nav"><a href="#licencia">Licencia</a></li>
+					<li class="divider"></li>
+					<li class="btn-nav"><a class="modal-trigger" data-target="modal-bibliografias">Referencias</a></li>
 				</ul>
 			</ul>
 			<ul class="side-nav" id="mobile-demo">
 				<li class="fb-user">
 					<!-- Facebook image load here -->
 				</li>
-				<li><a href="preguntas.html">Preguntas</a></li>
-				<li><a href="corrector.html">Corrección de texto</a></li>
-				<li><a href="definiciones.html">Definiciones</a></li>
-				<li><a href="#"><i class="material-icons">view_module</i></a></li>
-				<li><a href="index.html"><i class="material-icons">refresh</i></a></li>
+				<li class="btn-nav"><a onclick="chekfFB()" href="#preguntas">Preguntas</a></li>
+				<li class="btn-nav"><a href="#corrector">Corrección de texto</a></li>
+				<li class="btn-nav"><a href="#definiciones">Definiciones</a></li>
+				<li class="btn-nav"><a href="#/"><i class="material-icons">view_module</i></a></li>
+				<li class="btn-nav"><a href="" onclick="location.reload()"><i class="material-icons">refresh</i></a></li>
 				<!-- Dropdown Trigger -->
-				<li><a class='dropdown-button' href='#' data-activates='dropdown1'><i class="material-icons">more_vert</i></a></li>
+				<li><a class='dropdown-button' href='/' data-activates='dropdown1'><i class="material-icons">more_vert</i></a></li>
 				<!-- Dropdown Structure -->
 				<ul id='dropdown1' class='dropdown-content'>
 					<li class="divider"></li>
-					<li><a href="#!">Info</a></li>
+					<li class="btn-nav"><a onclick="fbLogout()">Cerrar sesión</a></li>
 					<li class="divider"></li>
-					<li><a href="#!">Licencia</a></li>
+					<li class="btn-nav"><a href="#licencia">Licencia</a></li>
+					<li class="divider"></li>
+					<li class="btn-nav"><a class="modal-trigger" data-target="modal-bibliografias">Referencias</a></li>
 				</ul>
 			</ul>
 		</div>
@@ -70,59 +92,14 @@
 	</div>
 	<main class="container">
 		<br><br>
+		<div class="fb-login-btn hide">
+			<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> <br><br>
+		</div>
+
 		<!-- Page Content goes here -->
-		<div class="row">
-			<div class="col s12">
-				<div class="card-panel teal">
-					<div class="fb-login-btn hide">
-						<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> <br><br>
-					</div>
-					<span class="white-text">I am a very simple card. I am good at containing small bits of information.
-						I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-					</span>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m4">
-				<div class="card-panel blue darken-3">
-					<h5 class="">Preguntas</h5>
-					<span class="white-text">I am a very simple card. I am good at containing small bits of information.
-						I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-					</span>
-					<br><br>
-					<a class="btn waves-effect btn-flat" href="preguntas.html">Ingresar
-						<i class="material-icons right">send</i>
-					</a>
-				</div>
-			</div>
-			<div class="col s12 m4">
-				<div class="card-panel purple accent-4">
-					<h5 class="">Corrección de texto</h5>
-					<span class="white-text">I am a very simple card. I am good at containing small bits of information.
-						I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-					</span>
-					<br><br>
-					<a class="btn waves-effect btn-flat" href="corrector.html">Ingresar
-						<i class="material-icons right">send</i>
-					</a>
-				</div>
-			</div>
-			<div class="col s12 m4">
-				<div class="card-panel green darken-3">
-					<h5 class="">Definiciones</h5>
-					<span class="white-text">I am a very simple card. I am good at containing small bits of information.
-						I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-					</span>
-					<br><br>
-					<a class="btn waves-effect btn-flat" href="definiciones.html">Ingresar
-						<i class="material-icons right">send</i>
-					</a>
-				</div>
-			</div>
-		</div>
+		<!-- angular views -->
+		<div ng-view></div>
 		<!--  -->
-		
 
 	</main>   
 	<div class="row">
@@ -131,16 +108,37 @@
 	<footer class="page-footer cyan darken-3">
 		<div class="footer-copyright">
 			<div class="container">
-				© 2014 Copyright Text
-				<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+				© 2016 GNU
+				<a class="grey-text text-lighten-4 right" href="https://github.com/mayuscula/mayuscula.github.io.git" target="_blank">Repositorio</a>
 			</div>
 		</div>
 	</footer>
-	<!-- <script src="js/jquery-3.1.0.min.js"></script> -->
+
+	<!-- Modal para las bibliografias -->
+	<div id="modal-bibliografias" class="modal">
+		<div class="modal-content">
+			<h5>Referencias bibliográficas</h5>
+			<p>Real Academia Española. (2016). Diccionario de la lengua española. Consultado en http://www.rae.es/</p>
+		</div>
+		<div class="modal-footer">
+		<a href="" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+		</div>
+	</div>
+	<!--  -->
 
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/controllers/fb-login-builder.js"></script>
+	<script>
+		function chekfFB(){
+			setTimeout(function(){
+				checkLoginState();
+			},200)
+		}
+		jQuery(document).ready(function($) {
+			$('.modal-trigger').leanModal();
+		});
+	</script>
 </body>
 </html>

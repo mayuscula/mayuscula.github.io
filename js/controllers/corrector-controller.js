@@ -1,4 +1,5 @@
-angular.module('App', []).controller('CtrlSignos', function($scope){
+app.controller('corrector-controller', function($scope, $route){
+	$scope.$route = $route;
 
 	$scope.scanner = function(){
 		$scope.text2 = "";

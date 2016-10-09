@@ -4,17 +4,25 @@
    if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
+      $("#formulario-iniciar-juego").hide(500);
+      $("#btn-iniciar-juego-fb").removeClass("hide");
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       $('.fb-login-btn').removeClass('hide');
       $('.fb-login-btn').hide();
       $('.fb-login-btn').show(500);
+      $(".fb-user").fadeOut(400);
+      $("#formulario-iniciar-juego").show(500);
+      $("#btn-iniciar-juego-fb").addClass("hide");
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
       $('.fb-login-btn').removeClass('hide');
       $('.fb-login-btn').hide();
       $('.fb-login-btn').show(500);
+      $(".fb-user").fadeOut(400);
+      $("#formulario-iniciar-juego").show(500);
+      $("#btn-iniciar-juego-fb").addClass("hide");
     }
   }
 
@@ -31,7 +39,7 @@
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
     if($("#initFB").attr('btn-active') == "true"){
-      initGame()
+      // initGame(2)
     }
     FB.api(
       '/me',
