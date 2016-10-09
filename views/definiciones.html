@@ -1,5 +1,6 @@
 <div ng-controller="definiciones-controller">
 	<div class="row">
+	<p style="font-size: 1.2em;" class="white-text">Grupos de definiciones</p>
 		<div class="col s12">
 			<ul class="collapsible popout" data-collapsible="accordion">
 				<li>
@@ -20,11 +21,11 @@
 	</div>
 	
 	<script >
-	jQuery(document).ready(function($) {
-		$('.collapsible').collapsible({
+		jQuery(document).ready(function($) {
+			$('.collapsible').collapsible({
 	      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-	    });
-		$("body").removeClass("black-body");
-	});
+	  });
+			$("body").removeClass("black-body");
+		});
 	</script>
 </div>

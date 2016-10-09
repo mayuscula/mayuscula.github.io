@@ -6,6 +6,7 @@
       testAPI();
       $("#formulario-iniciar-juego").hide(500);
       $("#btn-iniciar-juego-fb").removeClass("hide");
+      $('.fb-cerrar-sesion').show(400);
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       $('.fb-login-btn').removeClass('hide');
@@ -14,6 +15,7 @@
       $(".fb-user").fadeOut(400);
       $("#formulario-iniciar-juego").show(500);
       $("#btn-iniciar-juego-fb").addClass("hide");
+      $('.fb-cerrar-sesion').hide(400);
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
@@ -23,6 +25,7 @@
       $(".fb-user").fadeOut(400);
       $("#formulario-iniciar-juego").show(500);
       $("#btn-iniciar-juego-fb").addClass("hide");
+      $('.fb-cerrar-sesion').hide(400);
     }
   }
 

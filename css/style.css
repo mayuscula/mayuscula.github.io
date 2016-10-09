@@ -3,10 +3,10 @@ body {
   min-height: 100vh;
   flex-direction: column;
   background-image: url('../img/atomic_background.png');
-  background-color: #121342;
+  background-color: #232443;
 }
 .black-body{
-  background-color: #000;
+  background-color: #2C2C2C;
 }
 main {
  flex: 1 0 auto;
